@@ -52,7 +52,7 @@ namespace Application.Posts
                 post.Description = request.Description ?? post.Description;
                 post.Category = request.Category ?? post.Category;
                 // post.Thumbnail = request.Thumbnail ?? post.Thumbnail;
-                post.UpdatedAt = DateTime.Now;
+                post.UpdatedAt = DateTime.Now.AddHours(9);
 
                 var success = await _context.SaveChangesAsync() > 0;
 

@@ -1,27 +1,13 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Persistence.Migrations
 {
-    public partial class AddedPostAndPhotoEntityWithIdentity : Migration
+    public partial class InitialMigrations : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DeleteData(
-                table: "Values",
-                keyColumn: "Id",
-                keyValue: new Guid("b8537154-6b33-4490-a067-51804301e055"));
-
-            migrationBuilder.DeleteData(
-                table: "Values",
-                keyColumn: "Id",
-                keyValue: new Guid("e0318b89-23ae-4aaf-bdb7-9e551e23bd82"));
-
-            migrationBuilder.DeleteData(
-                table: "Values",
-                keyColumn: "Id",
-                keyValue: new Guid("edef0304-3c9e-453c-ba57-be54c83263d0"));
-
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -49,11 +35,27 @@ namespace Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Values",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn)
+                        .Annotation("MySql:ValueGenerationStrategy",
+                        MySqlValueGenerationStrategy.IdentityColumn)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Values", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     RoleId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
@@ -90,7 +92,9 @@ namespace Persistence.Migrations
                     AccessFailedCount = table.Column<int>(nullable: false),
                     DisplayName = table.Column<string>(nullable: true),
                     Bio = table.Column<string>(nullable: true),
-                    PhotoId = table.Column<string>(nullable: true)
+                    PhotoId = table.Column<string>(nullable: true),
+                    RefreshToken = table.Column<string>(nullable: true),
+                    RefreshTokenExpiry = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -108,7 +112,7 @@ namespace Persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
@@ -192,7 +196,7 @@ namespace Persistence.Migrations
                 name: "Posts",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<Guid>(maxLength: 255, nullable: false),
                     Title = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     Content = table.Column<string>(nullable: true),
@@ -222,17 +226,17 @@ namespace Persistence.Migrations
             migrationBuilder.InsertData(
                 table: "Values",
                 columns: new[] { "Id", "Name" },
-                values: new object[] { new Guid("f8373889-3197-4ee8-9b31-bfe6d9d88fdc"), "Value 101" });
+                values: new object[] { 1, "Value 101" });
 
             migrationBuilder.InsertData(
                 table: "Values",
                 columns: new[] { "Id", "Name" },
-                values: new object[] { new Guid("feeb9127-bc8e-4ea2-8953-ce8c9ae50136"), "Value 102" });
+                values: new object[] { 2, "Value 102" });
 
             migrationBuilder.InsertData(
                 table: "Values",
                 columns: new[] { "Id", "Name" },
-                values: new object[] { new Guid("1fc5b374-f789-4506-a763-e85d75170cbb"), "Value 103" });
+                values: new object[] { 3, "Value 103" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -243,7 +247,8 @@ namespace Persistence.Migrations
                 name: "RoleNameIndex",
                 table: "AspNetRoles",
                 column: "NormalizedName",
-                unique: true);
+                unique: true,
+                filter: "[NormalizedName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUserClaims_UserId",
@@ -269,7 +274,8 @@ namespace Persistence.Migrations
                 name: "UserNameIndex",
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
-                unique: true);
+                unique: true,
+                filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUsers_PhotoId",
@@ -308,6 +314,9 @@ namespace Persistence.Migrations
                 name: "Posts");
 
             migrationBuilder.DropTable(
+                name: "Values");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
@@ -315,36 +324,6 @@ namespace Persistence.Migrations
 
             migrationBuilder.DropTable(
                 name: "Photos");
-
-            migrationBuilder.DeleteData(
-                table: "Values",
-                keyColumn: "Id",
-                keyValue: new Guid("1fc5b374-f789-4506-a763-e85d75170cbb"));
-
-            migrationBuilder.DeleteData(
-                table: "Values",
-                keyColumn: "Id",
-                keyValue: new Guid("f8373889-3197-4ee8-9b31-bfe6d9d88fdc"));
-
-            migrationBuilder.DeleteData(
-                table: "Values",
-                keyColumn: "Id",
-                keyValue: new Guid("feeb9127-bc8e-4ea2-8953-ce8c9ae50136"));
-
-            migrationBuilder.InsertData(
-                table: "Values",
-                columns: new[] { "Id", "Name" },
-                values: new object[] { new Guid("b8537154-6b33-4490-a067-51804301e055"), "Value 101" });
-
-            migrationBuilder.InsertData(
-                table: "Values",
-                columns: new[] { "Id", "Name" },
-                values: new object[] { new Guid("e0318b89-23ae-4aaf-bdb7-9e551e23bd82"), "Value 102" });
-
-            migrationBuilder.InsertData(
-                table: "Values",
-                columns: new[] { "Id", "Name" },
-                values: new object[] { new Guid("edef0304-3c9e-453c-ba57-be54c83263d0"), "Value 103" });
         }
     }
 }

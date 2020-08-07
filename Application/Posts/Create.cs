@@ -55,8 +55,8 @@ namespace Application.Posts
                     Content = request.Content,
                     Description = request.Description,
                     Category = request.Category,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
+                    CreatedAt = DateTime.Now.AddHours(9),
+                    UpdatedAt = DateTime.Now.AddHours(9),
                     AppUser = user
                 };
 
