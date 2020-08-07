@@ -1,0 +1,55 @@
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+using Application.Interfaces;
+using Domain;
+using MediatR;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
+using Persistence;
+
+namespace Application.Photos
+{
+    public class AddUserPhoto
+    {
+        public class Command : IRequest<Photo>
+        {
+            public IFormFile File { get; set; }
+        }
+
+        public class Handler : IRequestHandler<Command, Photo>
+        {
+            private readonly ApplicationDbContext _context;
+            private readonly IUserAccessor _userAccessor;
+            private readonly IPhotoAccessor _photoAccessor;
+            public Handler(ApplicationDbContext context, IUserAccessor userAccessor, IPhotoAccessor photoAccessor)
+            {
+                _photoAccessor = photoAccessor;
+                _userAccessor = userAccessor;
+                _context = context;
+
+            }
+
+            public async Task<Photo> Handle(Command request, CancellationToken cancellationToken)
+            {
+                var photoUploadResult = _photoAccessor.AddUserPhoto(request.File);
+                var user = await _context.Users.SingleOrDefaultAsync(x =>
+                    x.UserName == _userAccessor.GetCurrentUsername());
+
+                var photo = new Photo
+                {
+                    Url = photoUploadResult.Url,
+                    Id = photoUploadResult.PublicId
+                };
+
+                user.Photo = photo;
+
+                var success = await _context.SaveChangesAsync() > 0;
+
+                if (success) return photo;
+
+                throw new Exception("데이터를 저장하는 동안 오류가 발생했습니다.");
+            }
+        }
+    }
+}

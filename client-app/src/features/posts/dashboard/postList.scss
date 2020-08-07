@@ -1,0 +1,129 @@
+.list__group--label {
+  display: inline-block;
+  margin-top: 3rem 0;
+  font-size: 4rem;
+  font-family: "Open Sans", sans-serif;
+  @include mainLinearGradient;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 0.2rem;
+  transition: all 0.2s;
+
+  &:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba(#000, 0.2);
+  }
+}
+
+.list__group--border {
+  width: 100%;
+  padding-bottom: 0.2rem;
+  margin-bottom: 3rem;
+  @include mainLinearGradient;
+}
+
+.wrapper--flex {
+  display: flex;
+}
+
+.container--grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  grid-gap: 5rem;
+  position: relative;
+
+  @include respond(tab-port) {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 3rem;
+  }
+
+  @include respond(phone) {
+    grid-template-columns: 1fr;
+    grid-gap: 2rem;
+  }
+}
+
+.filter {
+  &--checkbox {
+    display: none;
+  }
+
+  &--btn {
+    height: 5rem;
+    width: 5rem;
+    position: fixed;
+    top: 8rem;
+    right: 2rem;
+    border-radius: 6px;
+    z-index: 5;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+
+    &:hover {
+      transition: all 2s;
+    }
+  }
+
+  &--icon > i {
+    background-image: linear-gradient(
+      to right bottom,
+      rgba($color-black-light, 0.8),
+      rgba(#000000, 0.8)
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 3rem;
+
+    &:hover {
+      background-color: black;
+    }
+  }
+
+  &--checkbox:checked + &--btn > &--container {
+    display: block;
+  }
+}
+
+.filter--container {
+  position: absolute;
+  top: 2rem;
+  right: 0rem;
+  width: 15rem;
+  display: none;
+
+  @include respond(tab-land) {
+    top: 1.8rem;
+  }
+
+  @include respond(tab-port) {
+    top: 1.3rem;
+  }
+
+  @include respond(phone) {
+    top: 1.2rem;
+  }
+}
+
+.page--loading {
+  display: flex;
+  justify-content: center;
+  margin-top: 10rem;
+  position: absolute;
+  bottom: -10rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  & > i {
+    @include mainLinearGradient;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+}

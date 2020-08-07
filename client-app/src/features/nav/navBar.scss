@@ -1,0 +1,247 @@
+.blog-nav {
+  position: fixed;
+  width: 100%;
+  justify-content: space-between;
+  height: 7rem;
+  @include mainLinearGradient;
+  @include noSelect;
+  font-size: 1.6rem;
+
+  &-wrap {
+    width: 64%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include respond(tab-land) {
+      width: 90%;
+    }
+
+    @include respond(tab-port) {
+      width: 96%;
+    }
+  }
+
+  z-index: 10;
+  &__logo {
+    font-size: 2rem;
+
+    &:link,
+    &:visited {
+      color: #fff;
+      font-weight: 500;
+      font-size: 2.5rem;
+      text-transform: uppercase;
+    }
+  }
+
+  &__responsive {
+    display: none;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    @include respond(tab-port) {
+      display: flex;
+    }
+
+    &--checkbox {
+      display: none;
+    }
+
+    &--checkbox:checked + &--btn > &--content {
+      width: 16rem;
+      display: block;
+    }
+
+    &--btn {
+      height: 100%;
+      padding: 2rem 0 2rem 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    &--icon {
+      width: 0.6rem;
+      height: 0.6rem;
+      background-color: #fff;
+      border-radius: 100%;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &::before,
+      &::after {
+        content: "";
+        width: 0.6rem;
+        height: 0.6rem;
+        background-color: #fff;
+        position: absolute;
+        border-radius: 100%;
+      }
+
+      &::before {
+        transform: translateY(-1rem);
+      }
+
+      &::after {
+        transform: translateY(1rem);
+      }
+    }
+
+    &--content {
+      display: none;
+      background-color: $color-secondary-medium;
+      position: absolute;
+      top: 7rem;
+      right: 0.5rem;
+      z-index: 10;
+      @include noSelect;
+    }
+
+    &--items {
+      list-style: none;
+      height: 100%;
+    }
+
+    &--item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      & > span {
+        color: #fff;
+      }
+    }
+
+    &--link {
+      width: 100%;
+      padding: 2rem 0;
+      &:link,
+      &:visited {
+        text-decoration: none;
+        color: #fff;
+      }
+      &:hover {
+        background-color: $color-secondary-medium-2;
+      }
+    }
+  }
+
+  &__items {
+    height: 100%;
+    display: none;
+
+    @media (min-width: 56.26em) {
+      display: flex;
+    }
+  }
+
+  &__item {
+    height: 100%;
+    list-style: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $color-secondary-medium-2;
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    padding: 0 2.5rem;
+    height: 100%;
+    color: #fff;
+    &:link,
+    &:visited {
+      color: #fff;
+    }
+  }
+
+  &__dropdown {
+    &:hover {
+      background-color: $color-secondary-medium-2;
+    }
+    &-btn {
+      padding: 0rem 2rem;
+      height: 7rem;
+      border: none;
+      outline: none;
+      background-color: transparent;
+      cursor: pointer;
+
+      &:hover + .blog-nav__dropdown-content {
+        display: block;
+      }
+    }
+    &-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      & > img {
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 100px;
+        margin-right: 1rem;
+      }
+
+      & > span > span {
+        margin-right: 0.5rem;
+        color: #fff;
+      }
+
+      & > span > i {
+        color: #fff;
+      }
+    }
+    &-content {
+      display: none;
+      background-color: $color-secondary-medium;
+
+      &--link {
+        text-align: center;
+        padding: 2rem 0;
+        width: 100%;
+        &,
+        &:link,
+        &:visited {
+          color: #fff;
+          text-decoration: none;
+          display: block;
+          cursor: pointer;
+        }
+
+        &:hover {
+          background-color: $color-secondary-medium-2;
+        }
+      }
+      &:hover {
+        display: block;
+      }
+    }
+
+    &-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+.nav--width--responsive {
+  width: 90% !important;
+
+  @include respond(tab-port) {
+    width: 96% !important;
+  }
+}

@@ -1,0 +1,143 @@
+.profile__header__container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  padding-left: 2rem;
+}
+
+.profile__header__figure {
+  &__user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__img {
+    border-radius: 100%;
+    width: 10rem;
+  }
+
+  &__name {
+    margin-top: 1rem;
+  }
+
+  &__bio {
+    margin-top: 1rem;
+  }
+}
+
+.profile__body__wrapper {
+  & .bottom {
+    height: 50rem;
+  }
+}
+
+.profile__photo__header {
+  &--title {
+    display: inline-block;
+  }
+}
+
+.profile__photo__body {
+  display: flex;
+  justify-content: center;
+  height: 50%;
+  margin-top: 2rem;
+  margin-left: 2rem;
+
+  @media (max-width: 43.75em) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &--img {
+    width: 20rem;
+    height: 20rem;
+    background-position: center;
+    background-size: cover;
+    border-radius: 100%;
+    position: relative;
+
+    @media (max-width: 43.75em) {
+      padding-top: 10rem;
+      margin-bottom: 3rem;
+      width: 10rem;
+      height: 10rem;
+    }
+  }
+
+  &--box {
+    margin-left: 5rem;
+    @media (max-width: 43.75em) {
+      margin-left: 0;
+    }
+  }
+
+  &--upload {
+    cursor: pointer;
+    width: 20rem;
+    height: 20rem;
+
+    @media (max-width: 43.75em) {
+      padding-top: 10rem;
+      width: 10rem;
+      height: 10rem;
+    }
+
+    & > h2 {
+      font-size: 1.4rem;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 3px 2px green;
+    }
+  }
+
+  &--text {
+    &--1 {
+      display: block;
+      @media (max-width: 43.75em) {
+        display: none;
+      }
+    }
+  }
+}
+
+.btn__group {
+  display: flex;
+}
+
+.btn--absolute {
+  position: absolute;
+  left: 50%;
+  bottom: -7rem;
+  transform: translateX(-50%);
+
+  @media (max-width: 43.75em) {
+    bottom: -20rem;
+  }
+}
+
+.profile__posts__container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.dropzone-styles {
+  border: solid 3px;
+  border-color: #eee;
+  padding-top: 5rem;
+  border-radius: 100%;
+  text-align: center;
+  @media (max-width: 43.75em) {
+    padding-left: 0.1rem;
+    padding-top: 2.5rem;
+  }
+}
+
+.dropzone-active {
+  border-color: green;
+}

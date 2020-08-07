@@ -1,0 +1,103 @@
+// styles
+@import "../../styles/variables";
+@import "../../styles/utilities";
+@import "../../styles/mixins";
+
+// layout
+@import "../layout/App.scss";
+@import "../../app/layout/LoadingComponent.scss";
+
+// common/form
+@import "../common/form/formInput.scss";
+
+// common/modal
+@import "../common/modals/modalContainer.scss";
+
+// features/home
+@import "../../features/home/home/home.scss";
+
+// features/home
+@import "../../features/home/home/home.scss";
+
+// features/nav
+@import "../../features/nav/navBar.scss";
+
+// features/posts/dashboard
+@import "../../features/posts/dashboard/postList.scss";
+@import "../../features/posts/dashboard/postListItem.scss";
+
+// features/posts/details
+@import "../../features/posts/details/postDetails.scss";
+
+// features/posts/form
+@import "../../features/posts/form/postForm.scss";
+
+// features/profiles/form
+@import "../../features/profiles/profile.scss";
+
+// features/user
+@import "../../features/user/userForm.scss";
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; // 10px 1rem
+
+  @include respond(tab-land) {
+    // width < 1200?
+    font-size: 56.25%; // 1 rem = 9px, 9 / 16 = 56.25%;
+  }
+
+  @include respond(tab-port) {
+    // width < 900?
+    font-size: 50%; // 1 rem = 8px, 8 / 16 = 50%;
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%; // 1 rem = 12px, 12 / 16 = 75%;
+  }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    "Noto Sans KR", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.wrapper {
+  padding: 15rem 0;
+  width: 64%;
+  margin: 0 auto;
+
+  @include respond(tab-land) {
+    width: 90%;
+  }
+
+  @include respond(tab-port) {
+    width: 96%;
+  }
+}
+
+.wrapper__list {
+  padding: 15rem 0;
+  width: 90%;
+  margin: 0 auto;
+
+  @include respond(tab-port) {
+    width: 96%;
+  }
+}

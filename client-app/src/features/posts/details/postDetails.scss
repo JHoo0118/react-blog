@@ -1,0 +1,184 @@
+.wrapper-detail {
+  padding-top: 4rem;
+  color: $color-grey-dark-1;
+  background-color: #fff;
+  font-size: 1.6rem;
+}
+
+.detail {
+  &__header {
+    width: 100%;
+    height: 80vh;
+    z-index: 5;
+    position: relative;
+
+    &__explanation {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      color: #fff;
+      transform: translate(-50%, 0);
+      z-index: 1;
+      width: 64%;
+
+      @include respond(tab-land) {
+        width: 90%;
+      }
+
+      @include respond(phone) {
+        width: 96%;
+      }
+
+      &-title {
+        display: inline-block;
+        font-size: 3.2rem;
+        letter-spacing: 0.2rem;
+        margin-bottom: 2rem;
+        font-family: "Nanum Myeongjo", serif;
+
+        @include respond(phone) {
+          font-size: 2.5rem;
+          letter-spacing: 0.2rem;
+        }
+      }
+
+      &-description {
+        font-size: 1.5rem;
+        color: $color-grey-light-2;
+        margin-bottom: 5rem;
+
+        @include respond(phone) {
+          font-size: 1.4rem;
+          letter-spacing: 0.2rem;
+        }
+      }
+    }
+
+    &__figure {
+      display: flex;
+
+      @include respond(phone) {
+        justify-content: flex-end;
+      }
+
+      &__user {
+        margin-right: 2rem;
+        color: $color-grey-light-3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        span:first-child {
+          font-style: italic;
+          color: $color-grey-light-1;
+          font-weight: 600;
+
+          @include respond(phone) {
+            font-size: 1.2rem;
+          }
+        }
+
+        &-link {
+          display: block;
+          font-size: 1.6rem;
+          height: 100%;
+
+          @include respond(phone) {
+            font-size: 1.2rem;
+          }
+          &:link,
+          &:visited {
+            text-decoration: none;
+            color: $color-grey-light-4;
+          }
+        }
+      }
+
+      &__date {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        color: $color-grey-light-1;
+        font-weight: 500;
+        &-text {
+          display: inline-block;
+          font-size: 1.2rem;
+
+          @include respond(phone) {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+  &__img {
+    width: 100%;
+    height: 80vh;
+    background-position: center;
+    background-size: cover;
+    filter: blur(6px);
+    background-blend-mode: darken;
+    background-color: rgba($color: #000000, $alpha: 0.3);
+  }
+
+  &__content {
+    & img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.btn-absolute {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-detail {
+  width: 10rem;
+  height: 5rem;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  color: #fff;
+  &,
+  &:visited,
+  &:link {
+    text-decoration: none;
+    cursor: pointer;
+  }
+  &:first-child {
+    margin-right: 2rem;
+  }
+  &:last-child {
+  }
+}
+
+.btn--main {
+  display: inline-block;
+  @include mainLinearGradient;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    color: #fff;
+    background-color: $color-secondary-dark-2;
+  }
+}
+
+.btn--delete {
+  background-image: linear-gradient(
+    to right bottom,
+    rgba($color-red-medium, 0.85),
+    rgba($color-red-dark, 1)
+  );
+  &:hover {
+    background-color: $color-red-dark;
+  }
+}

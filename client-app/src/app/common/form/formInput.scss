@@ -1,0 +1,138 @@
+.form__group:not(:last-child) {
+  width: 100%;
+  padding-bottom: 2rem;
+}
+
+.form__input {
+  font-size: 1.5rem !important;
+  font-family: inherit !important;
+  color: inherit !important;
+  padding: 2rem !important;
+  width: 100% !important;
+  border: none !important;
+  display: block;
+  border-radius: 3px !important;
+  transition: all 0.3s;
+  font-size: 2rem;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 1rem 2rem rgba(#000, 0.1);
+    border-bottom: 3px solid $color-secondary-dark;
+  }
+
+  &:focus::-webkit-input-placeholder {
+    color: $color-secondary-dark;
+  }
+  &:focus::-moz-placeholder {
+    color: $color-secondary-dark;
+  }
+  &:focus::-ms-input-placeholder {
+    color: $color-secondary-dark;
+  }
+
+  &::-webkit-input-placeholder {
+    color: $color-grey-dark-2;
+  }
+
+  &__error {
+    border-bottom: 3px solid $color-red-light !important;
+  }
+}
+
+.form__textarea {
+  width: 100%;
+  border-radius: 3px;
+  padding: 2rem;
+  transition: all 0.2s;
+  color: #fff;
+  border: none;
+  background-color: $color-markdown;
+  resize: none;
+  font-family: inherit;
+  font-size: 2rem;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 1rem 2rem rgba(#000, 0.1);
+    border-bottom: 3px solid $color-secondary-dark;
+  }
+
+  &:focus::-webkit-input-placeholder {
+    color: $color-secondary-dark;
+  }
+  &:focus::-moz-placeholder {
+    color: $color-secondary-dark;
+  }
+  &:focus::-ms-input-placeholder {
+    color: $color-secondary-dark;
+  }
+
+  &::selection {
+    color: #fff;
+    background-color: $color-secondary-dark;
+  }
+
+  &__error {
+    border-bottom: 3px solid $color-red-light;
+  }
+}
+
+.form__select {
+  position: relative;
+  display: flex;
+  width: 50%;
+  height: 5rem;
+  line-height: 3;
+  overflow: hidden;
+  border-radius: 3px;
+  color: #fff;
+
+  &:hover::after {
+    color: $color-secondary-dark;
+  }
+
+  &::after {
+    content: "\25BC";
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: $color-secondary-medium-2;
+    cursor: pointer;
+    pointer-events: none;
+    -webkit-transition: 0.25s all ease;
+    -o-transition: 0.25s all ease;
+    transition: 0.25s all ease;
+  }
+  &--input {
+    width: 50%;
+    font-size: 2rem;
+  }
+}
+
+.form__error-message {
+  color: $color-red-light;
+  font-weight: 500;
+  font-size: 1.4rem;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: $color-secondary-medium-2;
+  background-image: none;
+  flex: 1;
+  padding: 0 0.5em;
+  color: inherit;
+  cursor: pointer;
+}
+
+select::-ms-expand {
+  display: none;
+}

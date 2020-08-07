@@ -1,0 +1,132 @@
+.card-link {
+  display: inline-block;
+  &:link,
+  &:visited {
+    color: $color-grey-dark-1;
+  }
+}
+
+.card {
+  border: 1px solid $color-grey-light-4;
+  border-radius: 2px;
+  position: relative;
+
+  border-style: solid;
+  border-image: linear-gradient(
+    to right bottom,
+    rgba($color-secondary-light, 0.85),
+    rgba($color-secondary-dark, 0.85)
+  );
+  border-image-width: 0.1rem;
+  border-image-slice: 1;
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 2px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+
+  &:hover {
+    color: #fff;
+    &::after {
+      transform: scale(1.1);
+      @include mainLinearGradient;
+      @include respond(tab-port) {
+        transform: scale(1);
+        background-image: none;
+      }
+    }
+
+    @include respond(tab-port) {
+      color: inherit;
+    }
+  }
+  &:hover > &__footer > span {
+    color: #fff;
+    @include respond(tab-port) {
+      color: $color-grey-dark-3;
+    }
+  }
+
+  &__border {
+    display: inline-block;
+  }
+
+  &__header {
+    position: relative;
+    &--category {
+      position: absolute;
+      font-size: 2rem;
+      color: #fff;
+      top: 0;
+      right: 0;
+      padding: 1rem 1.5rem;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+      @include mainLinearGradient;
+      transform: translate(2rem, -2rem);
+
+      @include respond(phone) {
+        transform: translate(0, 0);
+      }
+    }
+    &--img {
+      width: 100%;
+      min-height: 20rem;
+      max-height: 20rem;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    height: 15rem;
+    padding: 1rem 1.5rem;
+
+    &--title,
+    &--description {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      word-wrap: break-word;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    &--title {
+      -webkit-line-clamp: 1;
+      font-family: "Nanum Myeongjo", serif;
+      width: 100%;
+      h2 {
+        font-size: 2rem;
+      }
+    }
+
+    &--description {
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      -webkit-line-clamp: 5;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 1rem 1.5rem;
+
+    &--createdAt,
+    &--updatedAt {
+      font-size: 1.2rem;
+      color: $color-grey-dark-3;
+    }
+  }
+}
