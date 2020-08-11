@@ -9,11 +9,11 @@ const PostFilter = () => {
 
   return (
     <>
-      <Menu vertical size={"large"} style={{ width: "100%", marginTop: 30 }}>
+      <Menu vertical size={"large"} style={{ marginTop: 30 }}>
         <Header
           icon={"filter"}
           attached
-          style={{ color: "#434343" }}
+          style={{ color: "#434343", height: "auto" }}
           content={"필터"}
         />
         <Menu.Item

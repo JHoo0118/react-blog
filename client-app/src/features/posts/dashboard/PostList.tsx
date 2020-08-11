@@ -13,16 +13,6 @@ const PostList: React.FC<IProps> = ({ loadingNext }) => {
   const { postsByDate } = rootStore.postStore;
   return (
     <div className="wrapper--flex">
-      <div className="container--grid">
-        {postsByDate.map((post) => (
-          <PostListItem key={post.id} post={post} />
-        ))}
-        <div className="page--loading">
-          {loadingNext && (
-            <i className="fas fa-circle-notch fa-3x fa-spin loading"></i>
-          )}
-        </div>
-      </div>
       <div className="filter">
         <input
           className="filter--checkbox"
@@ -37,6 +27,16 @@ const PostList: React.FC<IProps> = ({ loadingNext }) => {
             <PostFilter />
           </div>
         </label>
+      </div>
+      <div className="container--grid">
+        {postsByDate.map((post) => (
+          <PostListItem key={post.id} post={post} />
+        ))}
+        <div className="page--loading">
+          {loadingNext && (
+            <i className="fas fa-circle-notch fa-3x fa-spin loading"></i>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -30,7 +30,7 @@ namespace Application.User
             {
                 RuleFor(x => x.DisplayName).NotEmpty();
                 RuleFor(x => x.Username).NotEmpty();
-                RuleFor(x => x.Email).NotEmpty().EmailAddress();
+                RuleFor(x => x.Email).NotEmpty().EmailAddress().WithMessage("올바른 이메일 형식이 아닙니다.");
                 RuleFor(x => x.Password).Password();
             }
         }

@@ -6,7 +6,7 @@ import {
   withRouter,
 } from "react-router-dom";
 import { observer } from "mobx-react-lite";
-import Home from "../../features/home/home/Home";
+import Home from "../../features/home/Home";
 import PostDashboard from "../../features/posts/dashboard/PostDashboard";
 import PostDetails from "../../features/posts/details/PostDetails";
 import PostForm from "../../features/posts/form/PostForm";
@@ -17,6 +17,7 @@ import LoadingComponent from "./LoadingComponent";
 import ProfilePage from "../../features/profiles/ProfilePage";
 import PrivateRoute from "./PrivateRoute";
 import ModalContainer from "../common/modals/ModalContainer";
+import Portfolio from "../../features/portfolio/Portfolio";
 
 const App: React.FC<RouteComponentProps> = ({ location }) => {
   const rootStore = useContext(RootStoreContext);
@@ -41,6 +42,7 @@ const App: React.FC<RouteComponentProps> = ({ location }) => {
         render={() => (
           <>
             <Switch>
+              <Route path="/portfolio" component={Portfolio} />
               <Route exact path="/posts" component={PostDashboard} />
               <Route path="/posts/:id" component={PostDetails} />
               <Route path="/profile/:username" component={ProfilePage} />

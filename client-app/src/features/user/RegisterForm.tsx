@@ -62,7 +62,7 @@ const RegisterForm = () => {
                 type="password"
               />
               {submitError && !dirtySinceLastSubmit && (
-                <ErrorMessage error={submitError} />
+                <ErrorMessage internalError={true} error={submitError} />
               )}
             </div>
             <button

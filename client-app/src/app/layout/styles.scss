@@ -14,10 +14,11 @@
 @import "../common/modals/modalContainer.scss";
 
 // features/home
-@import "../../features/home/home/home.scss";
+@import "../../features/portfolio/portfolio.scss";
+@import "../../features/portfolio/portfolioHeader.scss";
 
 // features/home
-@import "../../features/home/home/home.scss";
+@import "../../features/home/home.scss";
 
 // features/nav
 @import "../../features/nav/navBar.scss";
@@ -88,7 +89,11 @@ code {
   }
 
   @include respond(tab-port) {
-    width: 96%;
+    width: 94%;
+  }
+
+  @include respond(big-desktop) {
+    max-width: 150rem;
   }
 }
 
@@ -98,6 +103,10 @@ code {
   margin: 0 auto;
 
   @include respond(tab-port) {
-    width: 96%;
+    width: 94%;
+  }
+
+  @include respond(big-desktop) {
+    max-width: 150rem;
   }
 }

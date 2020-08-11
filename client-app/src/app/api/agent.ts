@@ -57,7 +57,6 @@ axios.interceptors.response.use(undefined, (error) => {
     history.push("/notfound");
   }
   if (status === 500) {
-    alert("서버 에러");
   }
   throw error.response;
 });

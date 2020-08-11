@@ -61,6 +61,14 @@ const NavBar: React.FC<IProps> = ({ isPostListPage }) => {
                         프로필
                       </Link>
                     </li>
+                    <li className="blog-nav__responsive--item">
+                      <span
+                        onClick={logout}
+                        className="blog-nav__responsive--link"
+                      >
+                        로그아웃
+                      </span>
+                    </li>
                   </>
                 ) : (
                   <>

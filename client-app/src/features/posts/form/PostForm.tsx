@@ -37,8 +37,8 @@ const validate = combineValidators({
     isRequired({ message: "필수 입력 항목입니다." }),
     hasLengthBetween(
       5,
-      151
-    )({ message: "최소 6글자, 최대 150글자로 작성해 주세요." })
+      201
+    )({ message: "최소 6글자, 최대 200글자로 작성해 주세요." })
   )(),
   content: composeValidators(
     isRequired({ message: "필수 입력 항목입니다." })
@@ -252,13 +252,6 @@ const PostForm: React.FC<RouteComponentProps<DetailParams>> = ({
 
               {page === "second" && (
                 <div>
-                  <span
-                    className="btn-text btn-text--prev"
-                    onClick={() => setPage("first")}
-                    style={{ right: "2rem" }}
-                  >
-                    <span>&larr;</span>&nbsp;이전으로
-                  </span>
                   <Field
                     name="content"
                     placeholder="내용을 자유롭게 입력해 주세요."
@@ -310,6 +303,13 @@ const PostForm: React.FC<RouteComponentProps<DetailParams>> = ({
       </div>
       {page === "second" && (
         <div className="post__form__markdown">
+          <span
+            className="btn-text btn-text--prev"
+            onClick={() => setPage("first")}
+            style={{ right: "2rem" }}
+          >
+            <span>&larr;</span>&nbsp;이전으로
+          </span>
           <ReactMarkdown
             source={post.content}
             escapeHtml={false}

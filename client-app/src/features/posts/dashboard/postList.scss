@@ -25,14 +25,24 @@
 
 .wrapper--flex {
   display: flex;
+  position: relative;
 }
 
 .container--grid {
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  grid-template-columns: repeat(4, minmax(25rem, 1fr));
   grid-gap: 5rem;
   position: relative;
+
+  @media (max-width: 81.25em) {
+    grid-template-columns: repeat(3, minmax(25rem, 1fr));
+  }
+
+  @include respond(tab-land) {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 3rem;
+  }
 
   @include respond(tab-port) {
     grid-template-columns: 1fr 1fr;
@@ -42,6 +52,11 @@
   @include respond(phone) {
     grid-template-columns: 1fr;
     grid-gap: 2rem;
+  }
+
+  @include respond(big-desktop) {
+    max-width: 150rem;
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -53,10 +68,10 @@
   &--btn {
     height: 5rem;
     width: 5rem;
-    position: fixed;
-    top: 8rem;
-    right: 2rem;
+    position: absolute;
     border-radius: 6px;
+    top: -7rem;
+    right: 0;
     z-index: 5;
     text-align: center;
     cursor: pointer;
@@ -67,6 +82,10 @@
 
     &:hover {
       transition: all 2s;
+    }
+
+    @include respond(phone) {
+      top: -6.5rem;
     }
   }
 
@@ -83,6 +102,9 @@
 
     &:hover {
       background-color: black;
+      @include respond(phone) {
+        background-color: none;
+      }
     }
   }
 
@@ -95,14 +117,13 @@
   position: absolute;
   top: 2rem;
   right: 0rem;
-  width: 15rem;
   display: none;
 
   @include respond(tab-land) {
     top: 1.8rem;
   }
 
-  @include respond(tab-port) {
+  @media only screen and (max-width: 56.25em), only screen and (hover: none) {
     top: 1.3rem;
   }
 

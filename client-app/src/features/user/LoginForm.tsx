@@ -50,6 +50,7 @@ const LoginForm = () => {
               />
               {submitError && !dirtySinceLastSubmit && (
                 <ErrorMessage
+                  internalError={false}
                   error={submitError}
                   text="이메일 혹은 비밀번호가 틀렸습니다."
                 />
@@ -58,7 +59,7 @@ const LoginForm = () => {
             <button
               type="submit"
               className={
-                "btn btn--blue width--full font-size--md " +
+                "btn btn--blue width--full font-size--md margin-top-sm" +
                 ((invalid && !dirtySinceLastSubmit) || pristine
                   ? "disabled"
                   : "")
