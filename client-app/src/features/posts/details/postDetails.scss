@@ -135,6 +135,10 @@
       max-width: 100%;
       height: auto;
     }
+
+    & pre {
+      overflow-x: auto !important;
+    }
   }
 }
 
