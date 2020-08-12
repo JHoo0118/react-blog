@@ -1,6 +1,6 @@
 import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { vs } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { coy } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 interface IProps {
   value: string;
@@ -13,8 +13,12 @@ const customStyle = {
 
 const CodeBlock: React.FC<IProps> = ({ language, value }) => {
   return (
-    <SyntaxHighlighter language={language} style={vs} customStyle={customStyle}>
-      {value}
+    <SyntaxHighlighter
+      language={language}
+      style={coy}
+      customStyle={customStyle}
+    >
+      {value ? value : " "}
     </SyntaxHighlighter>
   );
 };

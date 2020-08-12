@@ -7,7 +7,7 @@ interface IProp {
 const InlineCodeBlock: React.FC<IProp> = ({ value }) => {
   return (
     <span style={{ backgroundColor: "#f8f8f8", color: "#e96900" }}>
-      {value}
+      {value ? value : " "}
     </span>
   );
 };
