@@ -8,6 +8,7 @@ import NavBar from "../../nav/NavBar";
 import convertDatetime from "../../../helpers/convertDatetime";
 import InlineCodeBlock from "../../../components/InlineCodeBlock";
 import CodeBlock from "../../../components/ReactSyntaxHighlighter";
+import { Helmet } from "react-helmet";
 
 interface DetailsParams {
   id: string;
@@ -32,6 +33,10 @@ const PostDetails: React.FC<RouteComponentProps<DetailsParams>> = ({
   if (loadingInitial) return <LoadingComponent content="로딩 중..." />;
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>블로그 | {post ? post.title : ""} </title>
+      </Helmet>
       {post && (
         <>
           <div className="detail">

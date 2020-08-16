@@ -5,6 +5,7 @@ import { RootStoreContext } from "../../../app/stores/rootStore";
 import LoadingComponent from "../../../app/layout/LoadingComponent";
 import NavBar from "../../nav/NavBar";
 import InfiniteScroll from "react-infinite-scroller";
+import { Helmet } from "react-helmet";
 
 const PostDashboard: React.FC = () => {
   const rootStore = useContext(RootStoreContext);
@@ -32,6 +33,10 @@ const PostDashboard: React.FC = () => {
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>블로그 | 게시물 </title>
+      </Helmet>
       <NavBar isPostListPage={true} />
       <div className="wrapper__list">
         <InfiniteScroll

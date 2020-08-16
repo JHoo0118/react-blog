@@ -6,6 +6,7 @@ import { RouteComponentProps } from "react-router-dom";
 import LoadingComponent from "../../app/layout/LoadingComponent";
 import { observer } from "mobx-react-lite";
 import NavBar from "../nav/NavBar";
+import { Helmet } from "react-helmet";
 
 interface RouteParams {
   username: string;
@@ -25,6 +26,12 @@ const ProfilePage: React.FC<IProps> = ({ match }) => {
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>
+          블로그 | {profile?.username ? `${profile.username}의 프로필` : ""}
+        </title>
+      </Helmet>
       <NavBar isPostListPage={false} />
       <div className="wrapper">
         <>

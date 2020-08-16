@@ -25,6 +25,7 @@ import { useDropzone } from "react-dropzone";
 import { Icon } from "semantic-ui-react";
 import InlineCodeBlock from "../../../components/InlineCodeBlock";
 import CodeBlock from "../../../components/ReactSyntaxHighlighter";
+import { Helmet } from "react-helmet";
 const validate = combineValidators({
   title: composeValidators(
     isRequired({ message: "필수 입력 항목입니다." }),
@@ -131,112 +132,167 @@ const PostForm: React.FC<RouteComponentProps<DetailParams>> = ({
   };
 
   return (
-    <div
-      className={
-        "post__form__container " +
-        (page === "first" ? "post__form__container-primary--bg" : "")
-      }
-    >
+    <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>블로그 | {post.id ? "편집하기" : "게시물 작성"} </title>
+      </Helmet>
       <div
         className={
-          "post__form__box " +
-          (page === "first" ? "post__form__box__primary" : "")
+          "post__form__container " +
+          (page === "first" ? "post__form__container-primary--bg" : "")
         }
       >
-        <FinalForm
-          validate={validate}
-          initialValues={post}
-          onSubmit={handleFinalFormSubmit}
-          render={({ handleSubmit, invalid }) => (
-            <form
-              className={
-                "post__form " + (page === "second" ? "post__form__primary" : "")
-              }
-              onSubmit={handleSubmit}
-            >
-              {page === "first" && (
-                <>
-                  <div className="post__form__body-primary">
-                    <span
-                      className="btn-text btn-text--next margin-right-sm"
-                      onClick={() => setPage("second")}
-                    >
-                      다음으로 <span>&rarr;</span>
-                    </span>
-                    <Field
-                      placeholder="제목을 입력해 주세요."
-                      name="title"
-                      value={post.title}
-                      component={TextInput}
-                      inputOnChange={handleInputChange}
-                    />
-                    <Field
-                      placeholder="설명을 입력해 주세요."
-                      name="description"
-                      rows={3}
-                      value={post.description}
-                      component={TextAreaInput}
-                      style={{ backgroundColor: "#fff", color: "#000" }}
-                      inputOnChange={handleInputChange}
-                    />
-
-                    <Field
-                      placeholder="카테고리"
-                      name="category"
-                      value={post.category}
-                      component={SelectInput}
-                      inputOnChange={handleInputChange}
-                    />
-
-                    <div className="post__form__thumbnail">
-                      <div
-                        className="post__form--upload"
-                        {...getRootProps()}
-                        style={
-                          isDragActive
-                            ? { ...dropzoneStyles, ...dropzoneActive }
-                            : dropzoneStyles
-                        }
+        <div
+          className={
+            "post__form__box " +
+            (page === "first" ? "post__form__box__primary" : "")
+          }
+        >
+          <FinalForm
+            validate={validate}
+            initialValues={post}
+            onSubmit={handleFinalFormSubmit}
+            render={({ handleSubmit, invalid }) => (
+              <form
+                className={
+                  "post__form " +
+                  (page === "second" ? "post__form__primary" : "")
+                }
+                onSubmit={handleSubmit}
+              >
+                {page === "first" && (
+                  <>
+                    <div className="post__form__body-primary">
+                      <span
+                        className="btn-text btn-text--next margin-right-sm"
+                        onClick={() => setPage("second")}
                       >
-                        <input {...getInputProps()} />
-                        <Icon name="upload" size="huge" />
-                        <h2 className="profile__photo__body--text--1">
-                          이미지를 드래그 해주세요!
-                          <br />
-                          혹은 클릭!
-                        </h2>
+                        다음으로 <span>&rarr;</span>
+                      </span>
+                      <Field
+                        placeholder="제목을 입력해 주세요."
+                        name="title"
+                        value={post.title}
+                        component={TextInput}
+                        inputOnChange={handleInputChange}
+                      />
+                      <Field
+                        placeholder="설명을 입력해 주세요."
+                        name="description"
+                        rows={3}
+                        value={post.description}
+                        component={TextAreaInput}
+                        style={{ backgroundColor: "#fff", color: "#000" }}
+                        inputOnChange={handleInputChange}
+                      />
+
+                      <Field
+                        placeholder="카테고리"
+                        name="category"
+                        value={post.category}
+                        component={SelectInput}
+                        inputOnChange={handleInputChange}
+                      />
+
+                      <div className="post__form__thumbnail">
+                        <div
+                          className="post__form--upload"
+                          {...getRootProps()}
+                          style={
+                            isDragActive
+                              ? { ...dropzoneStyles, ...dropzoneActive }
+                              : dropzoneStyles
+                          }
+                        >
+                          <input {...getInputProps()} />
+                          <Icon name="upload" size="huge" />
+                          <h2 className="profile__photo__body--text--1">
+                            이미지를 드래그 해주세요!
+                            <br />
+                            혹은 클릭!
+                          </h2>
+                        </div>
+
+                        <div className="post__form--preview">
+                          {files && (
+                            <img
+                              className="post__form--preview--img"
+                              src={files[0]?.preview}
+                              alt="미리보기"
+                              style={
+                                files.length === 0 ? { display: "none" } : {}
+                              }
+                            />
+                          )}
+                          {post && post.thumbnail && files.length === 0 && (
+                            <img
+                              className="post__form--preview--img"
+                              src={post.thumbnail.url}
+                              alt="미리보기"
+                              style={
+                                post.thumbnail.url === ""
+                                  ? { display: "none" }
+                                  : {}
+                              }
+                            />
+                          )}
+                        </div>
                       </div>
 
-                      <div className="post__form--preview">
-                        {files && (
-                          <img
-                            className="post__form--preview--img"
-                            src={files[0]?.preview}
-                            alt="미리보기"
-                            style={
-                              files.length === 0 ? { display: "none" } : {}
-                            }
-                          />
-                        )}
-                        {post && post.thumbnail && files.length === 0 && (
-                          <img
-                            className="post__form--preview--img"
-                            src={post.thumbnail.url}
-                            alt="미리보기"
-                            style={
-                              post.thumbnail.url === ""
-                                ? { display: "none" }
-                                : {}
-                            }
-                          />
-                        )}
+                      <div className="btn-group--page--1 margin-top-xl">
+                        <button
+                          className="btn btn--cancel"
+                          disabled={loading}
+                          onClick={
+                            post.id
+                              ? () => history.push(`/posts/${post.id}`)
+                              : () => history.push("/posts")
+                          }
+                        >
+                          취소
+                        </button>
                       </div>
                     </div>
+                  </>
+                )}
 
-                    <div className="btn-group--page--1 margin-top-xl">
+                {page === "second" && (
+                  <div>
+                    <Field
+                      name="content"
+                      placeholder="내용을 자유롭게 입력해 주세요."
+                      value={post.content}
+                      rows={56}
+                      component={TextAreaInput}
+                      inputOnChange={handleInputChange}
+                    />
+
+                    <div className="btn-group--page--2 margin-bottom-md">
                       <button
-                        className="btn btn--cancel"
+                        type="submit"
+                        className={
+                          "btn btn--blue margin-right-sm " +
+                          (loading ||
+                          invalid ||
+                          (post.thumbnail.url === "" && files.length === 0)
+                            ? "disabled"
+                            : "")
+                        }
+                        disabled={
+                          loading ||
+                          invalid ||
+                          (post.thumbnail.url === "" && files.length === 0)
+                        }
+                      >
+                        {submitting && (
+                          <i className="fas fa-circle-notch fa-spin loading"></i>
+                        )}
+                        출간하기
+                      </button>
+                      <button
                         disabled={loading}
+                        className="btn btn--cancel"
                         onClick={
                           post.id
                             ? () => history.push(`/posts/${post.id}`)
@@ -247,77 +303,29 @@ const PostForm: React.FC<RouteComponentProps<DetailParams>> = ({
                       </button>
                     </div>
                   </div>
-                </>
-              )}
-
-              {page === "second" && (
-                <div>
-                  <Field
-                    name="content"
-                    placeholder="내용을 자유롭게 입력해 주세요."
-                    value={post.content}
-                    rows={56}
-                    component={TextAreaInput}
-                    inputOnChange={handleInputChange}
-                  />
-
-                  <div className="btn-group--page--2 margin-bottom-md">
-                    <button
-                      type="submit"
-                      className={
-                        "btn btn--blue margin-right-sm " +
-                        (loading ||
-                        invalid ||
-                        (post.thumbnail.url === "" && files.length === 0)
-                          ? "disabled"
-                          : "")
-                      }
-                      disabled={
-                        loading ||
-                        invalid ||
-                        (post.thumbnail.url === "" && files.length === 0)
-                      }
-                    >
-                      {submitting && (
-                        <i className="fas fa-circle-notch fa-spin loading"></i>
-                      )}
-                      출간하기
-                    </button>
-                    <button
-                      disabled={loading}
-                      className="btn btn--cancel"
-                      onClick={
-                        post.id
-                          ? () => history.push(`/posts/${post.id}`)
-                          : () => history.push("/posts")
-                      }
-                    >
-                      취소
-                    </button>
-                  </div>
-                </div>
-              )}
-            </form>
-          )}
-        />
-      </div>
-      {page === "second" && (
-        <div className="post__form__markdown">
-          <span
-            className="btn-text btn-text--prev"
-            onClick={() => setPage("first")}
-            style={{ right: "2rem" }}
-          >
-            <span>&larr;</span>&nbsp;이전으로
-          </span>
-          <ReactMarkdown
-            source={post.content}
-            escapeHtml={false}
-            renderers={{ code: CodeBlock, inlineCode: InlineCodeBlock }}
+                )}
+              </form>
+            )}
           />
         </div>
-      )}
-    </div>
+        {page === "second" && (
+          <div className="post__form__markdown">
+            <span
+              className="btn-text btn-text--prev"
+              onClick={() => setPage("first")}
+              style={{ right: "2rem" }}
+            >
+              <span>&larr;</span>&nbsp;이전으로
+            </span>
+            <ReactMarkdown
+              source={post.content}
+              escapeHtml={false}
+              renderers={{ code: CodeBlock, inlineCode: InlineCodeBlock }}
+            />
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 

@@ -1,6 +1,7 @@
 .wrapper-portfolio {
   width: 66%;
   margin: 0 auto;
+  position: relative;
   @include respond(tab-land) {
     width: 80%;
   }
@@ -8,12 +9,25 @@
   @include respond(tab-port) {
     width: 98%;
   }
+  @include respond(big-desktop) {
+    max-width: 180rem;
+  }
+}
+.portfolio__nav__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav--transparent {
+  background-color: transparent;
 }
 
 .nav {
   display: flex;
   align-items: center;
   height: 5rem;
+  width: 100%;
   background-color: $color-black-medium;
 
   &__name {
@@ -21,32 +35,733 @@
     color: #fff;
     font-size: 2rem;
   }
+
+  &__items {
+    @include respond(phone) {
+      display: none;
+    }
+  }
+
+  &__contact {
+    display: flex;
+  }
+
+  &__link--id {
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    margin-left: 2rem;
+    &,
+    &:link,
+    &:visited {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    &:hover {
+      color: #fde74c;
+    }
+  }
+}
+
+.about {
+  padding: 6rem 0;
+  text-transform: uppercase;
+  position: relative;
+  background-color: $color-tertiary-light-2;
+  @include respond(phone) {
+    padding: 5rem 0;
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.monitor {
+  position: relative;
+  width: 100%;
+  height: 60rem;
+  background-color: transparent;
+
+  @include respond(phone) {
+    width: 100%;
+  }
+
+  &--feature {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    background-color: $color-portfolio-header-bg;
+
+    @include respond(phone) {
+      display: none;
+    }
+
+    &--face {
+      position: absolute;
+      top: 5rem;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      width: 10rem;
+      height: 10rem;
+      background-color: #ffa17a;
+      border-radius: 50px;
+      box-shadow: 0 1rem 2rem rgba(#000, 0.1);
+    }
+
+    &--hair {
+      position: absolute;
+      top: -2.5rem;
+      width: 10rem;
+      height: 6rem;
+      background-color: #000;
+      border-top-left-radius: 50px;
+      border-top-right-radius: 50px;
+
+      &--left {
+        left: 0;
+        clip-path: polygon(0 0, 0% 100%, 100% 0);
+      }
+      &--right {
+        right: 0;
+        clip-path: polygon(0 0, 100% 100%, 100% 0);
+      }
+    }
+
+    &--eye {
+      position: absolute;
+      top: 4rem;
+      width: 1rem;
+      height: 2.5rem;
+      background-color: #000;
+      border-radius: 20px;
+
+      &--left {
+        left: 2rem;
+      }
+
+      &--right {
+        right: 2rem;
+      }
+    }
+
+    &--neck {
+      position: absolute;
+      top: 14.5rem;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      width: 3rem;
+      height: 1.5rem;
+      background-color: #ffa17a;
+    }
+
+    &--body {
+      position: absolute;
+      top: 16rem;
+      left: 0;
+      right: 0;
+      width: 15rem;
+      height: 10rem;
+      margin: 0 auto;
+      background-color: $color-tertiary-light-2;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+      box-shadow: 0 1rem 2rem rgba(#000, 0.1);
+
+      &--point {
+        position: absolute;
+        background-color: $color-portfolio-header-bg;
+        bottom: 0;
+        width: 0.2rem;
+        height: 7rem;
+        &--left {
+          left: 2.5rem;
+        }
+
+        &--right {
+          right: 2.5rem;
+        }
+      }
+    }
+  }
+
+  &--description {
+    width: 50%;
+    height: 100%;
+    padding: 4rem;
+    background-color: #f95c97;
+    color: #fff;
+    @include respond(tab-land) {
+      padding: 3rem;
+    }
+    @include respond(phone) {
+      width: 100%;
+      padding: 2rem;
+    }
+
+    & > h2 {
+      font-weight: 600;
+      font-size: 2rem;
+      animation-name: moveInLeft;
+      animation-duration: 1s;
+      animation-timing-function: ease-out;
+      @include respond(tab-land) {
+        font-size: 2.5rem;
+      }
+      @include respond(phone) {
+        font-size: 3rem;
+      }
+    }
+
+    & p {
+      font-family: "Noto Sans KR", sans-serif;
+      font-size: 1.4rem;
+      @include respond(tab-land) {
+        font-size: 1.8rem;
+      }
+    }
+  }
+
+  &--part1 {
+    position: absolute;
+    width: 70rem;
+    height: 30rem;
+    top: 2rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color: #2f2f2f;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    @include respond(phone) {
+      width: 40rem;
+    }
+  }
+  &--part2 {
+    position: absolute;
+    width: 66rem;
+    height: 26rem;
+    top: 4rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color: #fff;
+    display: flex;
+    @include respond(phone) {
+      width: 36rem;
+    }
+  }
+  &--part3 {
+    position: absolute;
+    width: 70rem;
+    height: 6rem;
+    top: 32rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color: #dadfe0;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 1rem 2rem rgba(#000, 0.1);
+    @include respond(phone) {
+      width: 40rem;
+      height: 4rem;
+    }
+  }
+  &--part4 {
+    position: absolute;
+    width: 30rem;
+    height: 12rem;
+    top: 38rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color: #bcc3c6;
+    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+    @include respond(phone) {
+      width: 24rem;
+      height: 8rem;
+      top: 36rem;
+    }
+  }
+
+  &--part5 {
+    position: absolute;
+    width: 30rem;
+    height: 4rem;
+    top: 50rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color: #dadfe0;
+    box-shadow: 0 1rem 2rem rgba(#000, 0.1);
+    @include respond(phone) {
+      width: 24rem;
+      height: 3rem;
+      top: 44rem;
+    }
+  }
+
+  &--part6 {
+    position: absolute;
+    width: 22rem;
+    height: 4rem;
+    top: 38rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color: #abaeb1;
+    clip-path: polygon(9% 0%, 91% 0%, 100% 100%, 0% 100%);
+    @include respond(phone) {
+      width: 17.5rem;
+      height: 2.5rem;
+      top: 36rem;
+    }
+  }
+
+  &--part7 {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 100%;
+    background-color: #2f2f2f;
+  }
+
+  &--part8 {
+    position: absolute;
+    width: 2rem;
+    height: 1rem;
+    top: 0.5rem;
+    left: 1rem;
+    border-radius: 100%;
+    background-color: #dadfe0;
+  }
+
+  &--part9 {
+    position: absolute;
+    left: 0rem;
+    top: 0rem;
+    width: 0;
+    height: 0;
+    border-left: 12rem solid $color-grey-light-1;
+    border-right: 4rem solid transparent;
+    border-bottom: 12rem solid transparent;
+    opacity: 0.3;
+  }
+
+  &--part10 {
+    position: absolute;
+    left: -14rem;
+    top: -2rem;
+    width: 0;
+    height: 0;
+    border-left: 2.1rem solid $color-grey-light-1;
+    border-right: 2rem solid transparent;
+    border-bottom: 2.1rem solid transparent;
+    border-top-left-radius: 20px;
+  }
+
+  &--part11 {
+    position: absolute;
+    left: -12rem;
+    top: -2rem;
+    width: 14.2rem;
+    height: 2rem;
+    background-color: $color-grey-light-1;
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+  }
+
+  &--part12 {
+    position: absolute;
+    left: -14.05rem;
+    top: 0;
+    width: 2.1rem;
+    height: 14rem;
+    background-color: $color-grey-light-1;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+  }
+}
+
+.language--logo {
+  width: 4rem;
+  margin: 1rem;
+}
+
+.turtle {
+  position: absolute;
+  width: 13rem;
+  height: 8rem;
+  left: 8rem;
+  bottom: 4.5rem;
+  background-color: transparent;
+
+  @include respond(phone) {
+    left: 2rem;
+  }
+
+  &--part1 {
+    position: absolute;
+    width: 4rem;
+    height: 4rem;
+    right: 2rem;
+    bottom: 2rem;
+    background-color: #f69579;
+  }
+  &--part2 {
+    position: absolute;
+    width: 1rem;
+    height: 4rem;
+    right: 6rem;
+    bottom: 2rem;
+    background-color: #fcc588;
+  }
+  &--part3 {
+    position: absolute;
+    width: 5rem;
+    height: 1rem;
+    right: 7rem;
+    bottom: 2rem;
+    background-color: #fcc588;
+  }
+
+  &--part4 {
+    position: absolute;
+    width: 5rem;
+    height: 4rem;
+    right: 7rem;
+    bottom: 3rem;
+    background-color: #00a651;
+  }
+
+  &--part5 {
+    position: absolute;
+    width: 4rem;
+    height: 1rem;
+    right: 3rem;
+    bottom: 6rem;
+    background-color: #007136;
+  }
+
+  &--part6 {
+    position: absolute;
+    width: 1rem;
+    height: 3rem;
+    right: 2rem;
+    bottom: 0rem;
+    background-color: #fcc588;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    transform: rotate(-45deg);
+  }
+
+  &--part7 {
+    position: absolute;
+    width: 1rem;
+    height: 3rem;
+    right: 6rem;
+    bottom: 0rem;
+    background-color: #fcc588;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    transform: rotate(45deg);
+  }
+
+  &--part8 {
+    position: absolute;
+    width: 1rem;
+    height: 3rem;
+    right: 10rem;
+    bottom: 0rem;
+    background-color: #fcc588;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    transform: rotate(45deg);
+  }
+
+  &--eye {
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    bottom: 1.2rem;
+    background-color: #fff;
+    border-radius: 100%;
+
+    &--left {
+      right: 2rem;
+    }
+
+    &--right {
+      right: 0.2rem;
+    }
+  }
+
+  &--pupil {
+    position: absolute;
+    background-color: #000;
+    width: 0.5rem;
+    height: 0.5rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 100%;
+  }
+}
+
+.speech--bubble {
+  position: absolute;
+  top: 3rem;
+  left: 8rem;
+  width: 8rem;
+  height: 5rem;
+  background-color: #dceaf8;
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 75%,
+    75% 75%,
+    75% 100%,
+    50% 75%,
+    0% 75%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s;
+  @include respond(phone) {
+    left: 2rem;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  & span {
+    font-size: 2rem;
+    transform: translateY(-0.5rem);
+  }
+}
+
+.dashboard {
+  position: relative;
+  width: 100%;
+  height: 45rem;
+  background-color: transparent;
+
+  &__nav {
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-bottom: 2px solid #dceaf8;
+
+    &__button {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 100%;
+      background-color: #fff;
+      margin-right: 1rem;
+      cursor: pointer;
+      @include respond(phone) {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-right: 1.5rem;
+      }
+
+      &--active {
+        background-color: $color-black-medium;
+      }
+
+      &:hover {
+        background-color: $color-black-medium;
+      }
+    }
+  }
+
+  &--title {
+    color: #fff;
+    font-weight: 600;
+    @include respond(phone) {
+      font-size: 2.5rem;
+    }
+  }
+
+  &__introduction {
+    width: 100%;
+    height: 10rem;
+    background-color: #dceaf8;
+    border-radius: 20px;
+    padding: 1rem;
+
+    @include respond(phone) {
+      height: 13rem;
+    }
+
+    & > p {
+      font-size: 1.6rem;
+      color: $color-grey-dark-1;
+    }
+  }
+
+  &__description {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    padding: 2rem;
+
+    &--wrapper {
+      width: 100%;
+      height: 21rem;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &--flex--box {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      width: 100%;
+      height: 100%;
+      padding-top: 1rem;
+      justify-items: center;
+    }
+
+    &--box {
+      width: 100%;
+      height: 6rem;
+      background-color: #fff;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    &--big--box {
+      width: 100%;
+      height: 20rem;
+      background-color: $color-portfolio-header-bg;
+      border-radius: 10px;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      &--text {
+        position: absolute;
+        color: #fff;
+        font-size: 3rem;
+        top: 1rem;
+        right: 2rem;
+        font-weight: 700;
+        word-break: break-all;
+        @include respond(phone) {
+          font-size: 2.2rem;
+        }
+      }
+    }
+
+    &--circle--box {
+      width: 10rem;
+      height: 10rem;
+      background-color: $color-tertiary-light-2;
+      border-radius: 100%;
+      display: flex;
+      align-items: center;
+      position: relative;
+      justify-content: center;
+      border: 3px solid #dceaf8;
+      box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.1);
+      @include respond(phone) {
+        width: 6.5rem;
+        height: 6.5rem;
+      }
+    }
+    & span {
+      font-size: 2rem;
+      font-weight: 600;
+    }
+  }
+
+  &--part1 {
+    position: absolute;
+    width: 70rem;
+    height: 36rem;
+    top: 2rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 20px;
+    @include respond(phone) {
+      width: 40rem;
+    }
+  }
+
+  &--part2 {
+    position: absolute;
+    width: 66rem;
+    height: 32rem;
+    top: 4rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color: #0286d0;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    @include respond(phone) {
+      width: 36rem;
+    }
+  }
+
+  &--part3 {
+    position: absolute;
+    width: 70rem;
+    height: 6rem;
+    top: 33.8rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color: #dceaf8;
+    border-radius: 40px;
+    box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+    @include respond(phone) {
+      width: 40rem;
+    }
+  }
+}
+
+.section--title {
+  text-align: center;
+  font-size: 5rem;
+  text-transform: uppercase;
+}
+
+.about--title {
+  color: #fff;
+}
+
+.projcet--title {
+  color: $color-grey-dark-2;
 }
 
 .project {
-  padding: 12rem 0;
+  padding: 8rem 0;
+  background-color: #fff;
   position: relative;
 
   @include respond(phone) {
     padding: 5rem 0;
   }
-
-  &--title {
-    text-align: center;
-    font-size: 5rem;
-    text-transform: uppercase;
-    color: $color-black-medium;
-  }
-}
-
-.left-side {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 100%;
-  background-color: #edf6f9;
-  z-index: -1;
 }
 
 .start-icon {
@@ -389,71 +1104,87 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
 
-  &__contact {
+.contact {
+  display: flex;
+
+  &-title {
+    color: #fff;
+    font-size: 2rem;
+    text-transform: uppercase;
+  }
+
+  &__link {
+    border-radius: 100px;
+    width: 4rem;
+    height: 4rem;
     display: flex;
-
-    &-title {
-      color: #fff;
-      font-size: 2rem;
-      text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+    &,
+    &:link,
+    &:visited {
+      text-decoration: none;
     }
 
-    &__link {
-      border-radius: 100px;
-      width: 4rem;
-      height: 4rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      &,
+    &--github {
       &:link,
       &:visited {
-        text-decoration: none;
+        color: #000;
       }
+      background-color: white;
 
-      &--github {
-        &:link,
-        &:visited {
-          color: #000;
-        }
-        background-color: white;
-
-        & > i {
-          font-size: 2rem;
-        }
-      }
-
-      &--email {
-        &:link,
-        &:visited {
-          color: #fff;
-        }
-        background-color: $color-portfolio-header-bg;
-        & > i {
-          font-size: 1.6rem;
-        }
-      }
-    }
-
-    &--icon-box {
-      &:not(:last-child) {
-        margin-right: 2rem;
-      }
-      cursor: pointer;
-
-      & > .i {
+      & > i {
         font-size: 2rem;
       }
+    }
 
-      &--github {
-        background-color: white;
-      }
-
-      &--email {
+    &--email {
+      &:link,
+      &:visited {
         color: #fff;
-        background-color: $color-portfolio-header-bg;
+      }
+      background-color: $color-portfolio-header-bg;
+      & > i {
+        font-size: 1.6rem;
       }
     }
+  }
+
+  &--icon-box {
+    &:not(:last-child) {
+      margin-right: 2rem;
+    }
+    cursor: pointer;
+
+    & > .i {
+      font-size: 2rem;
+    }
+
+    &--github {
+      background-color: white;
+    }
+
+    &--email {
+      color: #fff;
+      background-color: $color-portfolio-header-bg;
+    }
+  }
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+
+  80% {
+    transform: translateX(1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
   }
 }
