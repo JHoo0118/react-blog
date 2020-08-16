@@ -429,6 +429,12 @@
     transform: scale(0.6);
     top: 37rem;
   }
+  @include respond(tab-port) {
+    left: 8%;
+  }
+  @include respond(phone) {
+    left: 4%;
+  }
 
   &-leaf {
     position: absolute;
@@ -464,6 +470,13 @@
   @media (max-width: 62.5em) {
     transform: scale(0.6);
     top: 37rem;
+  }
+
+  @include respond(tab-port) {
+    right: 8%;
+  }
+  @include respond(phone) {
+    right: 4%;
   }
 
   &-leaf {
