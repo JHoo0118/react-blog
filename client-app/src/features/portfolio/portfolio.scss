@@ -593,6 +593,7 @@
     font-weight: 600;
     @include respond(phone) {
       font-size: 2.5rem;
+      padding-bottom: 1.5rem;
     }
   }
 
@@ -602,7 +603,6 @@
     background-color: #dceaf8;
     border-radius: 10px;
     padding: 1rem;
-    transform: translateY(-1rem);
 
     @include respond(phone) {
       height: 13rem;
@@ -615,14 +615,14 @@
   }
 
   &__description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 100%;
-    height: 100%;
-    display: grid;
     padding: 2rem;
 
     &--wrapper {
       width: 100%;
-      height: 21rem;
       border-radius: 10px;
       display: flex;
       flex-direction: column;
@@ -630,10 +630,9 @@
     }
 
     &--flex--box {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      display: flex;
+      justify-content: space-around;
       width: 100%;
-      height: 100%;
       padding-top: 1rem;
       justify-items: center;
     }
@@ -654,6 +653,7 @@
       background-color: $color-portfolio-header-bg;
       border-radius: 10px;
       padding: 2rem;
+      margin-bottom: 1rem;
       display: flex;
       align-items: center;
       position: relative;
@@ -673,8 +673,8 @@
     }
 
     &--circle--box {
-      width: 10rem;
-      height: 10rem;
+      width: 8rem;
+      height: 8rem;
       background-color: $color-tertiary-light-2;
       border-radius: 100%;
       display: flex;
@@ -683,10 +683,11 @@
       justify-content: center;
       border: 3px solid #dceaf8;
       box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.1);
-      margin-top: -1.5rem;
+      margin-bottom: 1rem;
       @include respond(phone) {
         width: 6.5rem;
         height: 6.5rem;
+        margin-top: -1.5rem;
       }
     }
     & span {
@@ -707,6 +708,7 @@
     border-radius: 20px;
     @include respond(phone) {
       width: 40rem;
+      height: 40rem;
     }
   }
 
@@ -724,6 +726,7 @@
     border-radius: 20px;
     @include respond(phone) {
       width: 36rem;
+      height: 36rem;
     }
   }
 
@@ -740,6 +743,7 @@
     box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
     @include respond(phone) {
       width: 40rem;
+      height: 11rem;
     }
   }
 }
@@ -768,7 +772,7 @@
   }
 }
 
-.start-icon {
+.star-icon {
   position: absolute;
   top: 0;
   right: 10%;
@@ -778,8 +782,12 @@
   clip-path: polygon(50% 0, 100% 20%, 100% 100%, 0 100%, 0 20%);
   transform: rotateX(180deg);
   box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.4);
+  @include respond(tab-land) {
+    transform: rotateX(180deg) scale(0.95);
+    top: -0.6rem;
+  }
 
-  @include respond(phone) {
+  @include respond(tab-port) {
     display: none;
   }
   &-part--1 {
@@ -839,12 +847,13 @@
   height: 40rem;
   margin: 5rem;
   @include respond(tab-land) {
-    flex: 0 0 34rem;
+    flex: 0 0 30rem;
   }
 
   @include respond(tab-port) {
     flex: 0 0 36rem;
   }
+
   @include respond(phone) {
     flex: 0 0 40rem;
   }

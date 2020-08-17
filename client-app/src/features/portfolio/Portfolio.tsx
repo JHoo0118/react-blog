@@ -352,10 +352,10 @@ const Portfolio = () => {
       </section>
 
       <section className="project" id="project">
-        <div className="start-icon">
-          <div className="start-icon-part--1">
-            <div className="start-icon-part--2">
-              <div className="start-icon-part--3"></div>
+        <div className="star-icon">
+          <div className="star-icon-part--1">
+            <div className="star-icon-part--2">
+              <div className="star-icon-part--3"></div>
             </div>
           </div>
         </div>

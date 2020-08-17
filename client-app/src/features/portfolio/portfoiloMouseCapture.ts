@@ -1,7 +1,5 @@
 export default function () {
-  let startIcon = document.getElementsByClassName(
-    "start-icon"
-  )[0] as HTMLElement;
+  let starIcon = document.getElementsByClassName("star-icon")[0] as HTMLElement;
 
   const input = {
     mouseX: {
@@ -52,7 +50,7 @@ export default function () {
 
     output.x.current = output.x.start + input.mouseX.fraction * output.x.range;
 
-    startIcon.style.transform =
+    starIcon.style.transform =
       "translateX(" + output.x.current + "px) rotateX(180deg)";
   };
 
