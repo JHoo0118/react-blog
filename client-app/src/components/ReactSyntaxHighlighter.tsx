@@ -9,6 +9,7 @@ interface IProps {
 
 const customStyle = {
   backgroundColor: "#f8f8f8",
+  padding: "1.34rem",
 };
 
 const CodeBlock: React.FC<IProps> = ({ language, value }) => {
