@@ -32,6 +32,13 @@ const PostFilter = () => {
         />
         <Menu.Item
           style={{ color: "#434343" }}
+          name={"CSS"}
+          content={"CSS"}
+          active={predicate.get("category") === "css"}
+          onClick={() => setPredicate("category", "css")}
+        />
+        <Menu.Item
+          style={{ color: "#434343" }}
           name={"ASP.NET Core"}
           content={"ASP.NET Core"}
           active={predicate.get("category") === "aspdotnet-core"}

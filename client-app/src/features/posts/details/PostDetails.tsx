@@ -24,6 +24,7 @@ const PostDetails: React.FC<RouteComponentProps<DetailsParams>> = ({
     post,
     isCurrentUserForPost,
     deletePhoto,
+    isDeleting,
   } = rootStore.postStore;
 
   useEffect(() => {
@@ -87,6 +88,9 @@ const PostDetails: React.FC<RouteComponentProps<DetailsParams>> = ({
                       deletePhoto(post.id)
                     }
                   >
+                    {isDeleting && (
+                      <i className="fas fa-circle-notch fa-spin loading"></i>
+                    )}
                     삭제하기
                   </button>
                 </div>

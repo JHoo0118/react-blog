@@ -29,6 +29,7 @@ export default class PostStore {
   @observable postCount = 0;
   @observable page = 0;
   @observable predicate = new Map();
+  @observable isDeleting = false;
 
   @action setPredicate = (predicate: string, value: string) => {
     this.predicate.clear();
@@ -191,7 +192,7 @@ export default class PostStore {
   };
 
   @action deletePhoto = async (id: string) => {
-    this.submitting = true;
+    this.isDeleting = true;
     try {
       if (this.post?.id === id && this.post.thumbnail) {
         await agent.Posts.deletePhoto(this.post?.id);
@@ -199,12 +200,12 @@ export default class PostStore {
       await agent.Posts.delete(id);
       runInAction(() => {
         this.postRegistry.delete(id);
-        this.submitting = true;
+        this.isDeleting = true;
       });
       history.push(`/posts`);
     } catch (error) {
       runInAction(() => {
-        this.submitting = false;
+        this.isDeleting = false;
       });
       console.log(error);
     }

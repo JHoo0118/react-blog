@@ -28,6 +28,9 @@ const SelectInput: React.FC<IProps> = ({
           <option key="javascript" value="Javascript">
             Javascript
           </option>
+          <option key="css" value="CSS">
+            CSS
+          </option>
           <option key="aspdotnet-core" value="ASP.NET Core">
             ASP.NET Core
           </option>
