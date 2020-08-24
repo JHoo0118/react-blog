@@ -41,7 +41,7 @@ const PostDetails: React.FC<RouteComponentProps<DetailsParams>> = ({
       {post && (
         <>
           <div className="detail">
-            <NavBar />
+            <NavBar scroll={true} />
             <div className="detail__header">
               <div
                 style={{ backgroundImage: `url(${post.thumbnail?.url})` }}

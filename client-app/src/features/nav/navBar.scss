@@ -6,6 +6,8 @@
   @include mainLinearGradient;
   @include noSelect;
   font-size: 1.4rem;
+  transition: top 0.3s;
+  top: 0;
 
   &-wrap {
     width: 90%;

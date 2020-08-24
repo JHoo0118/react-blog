@@ -1,13 +1,26 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { RootStoreContext } from "../../app/stores/rootStore";
 import LoginForm from "../user/LoginForm";
 import RegisterForm from "../user/RegisterForm";
+import navBarHide from "./navBarHide";
 
-const NavBar = () => {
+interface IProp {
+  scroll: boolean;
+}
+
+const NavBar: React.FC<IProp> = ({ scroll }) => {
   const rootStore = useContext(RootStoreContext);
   const { user, logout } = rootStore.userStore;
   const { openModal } = rootStore.modalStore;
+
+  useEffect(() => {
+    if (scroll) {
+      navBarHide();
+    } else {
+      return;
+    }
+  }, [scroll]);
 
   return (
     <nav className="blog-nav">

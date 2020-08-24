@@ -32,7 +32,7 @@ const ProfilePage: React.FC<IProps> = ({ match }) => {
           블로그 | {profile?.username ? `${profile.username}의 프로필` : ""}
         </title>
       </Helmet>
-      <NavBar />
+      <NavBar scroll={false} />
       <div className="wrapper">
         <>
           <ProfileHeader profile={profile!} />
