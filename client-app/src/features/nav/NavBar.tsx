@@ -4,22 +4,14 @@ import { RootStoreContext } from "../../app/stores/rootStore";
 import LoginForm from "../user/LoginForm";
 import RegisterForm from "../user/RegisterForm";
 
-interface IProps {
-  isPostListPage: boolean;
-}
-
-const NavBar: React.FC<IProps> = ({ isPostListPage }) => {
+const NavBar = () => {
   const rootStore = useContext(RootStoreContext);
   const { user, logout } = rootStore.userStore;
   const { openModal } = rootStore.modalStore;
 
   return (
     <nav className="blog-nav">
-      <div
-        className={
-          "blog-nav-wrap " + (isPostListPage && "nav--width--responsive")
-        }
-      >
+      <div className="blog-nav-wrap">
         <Link to={"/posts"} className="blog-nav__logo">
           <i className="fas fa-code"></i>
           &nbsp;HooBlog

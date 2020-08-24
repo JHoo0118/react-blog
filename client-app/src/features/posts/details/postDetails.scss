@@ -18,13 +18,15 @@
       top: 30%;
       left: 50%;
       color: #fff;
-      transform: translate(-50%, 0);
+      transform: translateX(-50%);
+      width: 800px;
       z-index: 1;
-      width: 64%;
 
       @include respond(tab-land) {
-        width: 90%;
         height: 60%;
+      }
+      @include respond(tab-port) {
+        width: 94%;
       }
 
       @include respond(phone) {

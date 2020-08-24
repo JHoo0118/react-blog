@@ -41,8 +41,12 @@ const PostDetails: React.FC<RouteComponentProps<DetailsParams>> = ({
       {post && (
         <>
           <div className="detail">
-            <NavBar isPostListPage={false} />
+            <NavBar />
             <div className="detail__header">
+              <div
+                style={{ backgroundImage: `url(${post.thumbnail?.url})` }}
+                className="detail__img"
+              />
               <div className="detail__header__explanation">
                 <h1 className="detail__header__explanation-title">
                   {post.title}
@@ -69,10 +73,6 @@ const PostDetails: React.FC<RouteComponentProps<DetailsParams>> = ({
                   </div>
                 </div>
               </div>
-              <div
-                style={{ backgroundImage: `url(${post.thumbnail?.url})` }}
-                className="detail__img"
-              />
               {isCurrentUserForPost && (
                 <div className="btn-absolute">
                   <Link

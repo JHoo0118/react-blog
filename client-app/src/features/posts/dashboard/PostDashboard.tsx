@@ -37,7 +37,7 @@ const PostDashboard: React.FC = () => {
         <meta charSet="utf-8" />
         <title>블로그 | 게시물 </title>
       </Helmet>
-      <NavBar isPostListPage={true} />
+      <NavBar />
       <div className="wrapper__list">
         <InfiniteScroll
           pageStart={0}
