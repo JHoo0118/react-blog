@@ -25,13 +25,19 @@ const PostDetails: React.FC<RouteComponentProps<DetailsParams>> = ({
     isCurrentUserForPost,
     deletePhoto,
     isDeleting,
+    claerPost,
+    postRegistry,
   } = rootStore.postStore;
-
   useEffect(() => {
     loadPost(match.params.id);
-  }, [loadPost, match.params.id]);
+    return () => {
+      claerPost();
+    };
+  }, [loadPost, match.params.id, claerPost]);
 
-  if (loadingInitial) return <LoadingComponent content="로딩 중..." />;
+  if (loadingInitial && !postRegistry.get(match.params.id))
+    return <LoadingComponent content="로딩 중..." />;
+
   return (
     <>
       <Helmet>

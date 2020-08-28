@@ -16,7 +16,6 @@ namespace API.Controllers
         public ValuesController(ApplicationDbContext context)
         {
             _context = context;
-
         }
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Value>>> Get()

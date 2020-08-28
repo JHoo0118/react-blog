@@ -9,9 +9,10 @@ const PostListItem: React.FC<{ post: IPost }> = ({ post }) => {
       <div className="card">
         <div className="card__header">
           <span className="card__header--category">{post.category}</span>
-          <div
-            style={{ backgroundImage: `url(${post.thumbnail?.url})` }}
+          <img
+            src={post.thumbnail?.url}
             className="card__header--img"
+            alt="img"
           />
         </div>
         <div className="card__body">

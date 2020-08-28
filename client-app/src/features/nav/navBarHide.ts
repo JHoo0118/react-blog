@@ -8,7 +8,6 @@ export default function () {
   let flag = false;
 
   window.onscroll = function () {
-    console.log(nav.scrollTop);
     if (prevScrollPos < navHeight * 1.5) {
       nav.style.backgroundImage = "none";
       flag = true;

@@ -45,10 +45,72 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>블로그</title>
+    <style>
+      .container--loading {
+        position: relative;
+        min-width: 100vw;
+        min-height: 100vh;
+        overflow: hidden;
+      }
+
+      .loading--box {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .loading--box i {
+        background-image: linear-gradient(
+          to right bottom,
+          rgba(#2998ff, 0.85),
+          rgba(#5643fa, 0.85)
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+      @media only screen and (max-width: 37.5em) {
+        .loading--box i {
+          font-size: 3rem;
+        }
+        .loading--content {
+          font-size: 3rem;
+          padding: 2rem;
+        }
+      }
+
+      .loading--content {
+        font-size: 5rem;
+        padding: 5rem;
+
+        background-image: linear-gradient(
+          to right bottom,
+          rgba(#2998ff, 0.85),
+          rgba(#5643fa, 0.85)
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="root">
+      <div class="container--loading">
+        <div class="loading--box">
+          <div>
+            <i class="fas fa-circle-notch fa-3x fa-spin loading"></i>
+          </div>
+          <div class="loading--content">로딩 중...</div>
+        </div>
+      </div>
+    </div>
+
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

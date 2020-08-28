@@ -15,11 +15,9 @@ const PostDashboard: React.FC = () => {
     setPage,
     page,
     totalPages,
-    postsByDate,
   } = rootStore.postStore;
   const [loadingNext, setLoadingNext] = useState(false);
 
-  console.log(page);
   const handleGetNext = () => {
     setLoadingNext(true);
     setPage(page + 1);
@@ -29,7 +27,7 @@ const PostDashboard: React.FC = () => {
     loadPosts();
   }, [loadPosts]);
 
-  if (loadingInitial && page === 0 && postsByDate.length === 0)
+  if (loadingInitial && page === 0)
     return <LoadingComponent content="로딩 중..." />;
 
   return (

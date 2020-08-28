@@ -4,7 +4,7 @@ import { IPost } from "../models/post";
 import { history } from "../..";
 import agent from "../api/agent";
 
-const LIMIT = 6;
+const LIMIT = 8;
 
 export default class PostStore {
   rootStore: RootStore;
@@ -128,6 +128,10 @@ export default class PostStore {
     }
   };
 
+  @action claerPost = () => {
+    this.post = null;
+  };
+
   @action createPost = async (post: IPost, file: Blob) => {
     this.submitting = true;
     try {
@@ -200,7 +204,7 @@ export default class PostStore {
       await agent.Posts.delete(id);
       runInAction(() => {
         this.postRegistry.delete(id);
-        this.isDeleting = true;
+        this.isDeleting = false;
       });
       history.push(`/posts`);
     } catch (error) {

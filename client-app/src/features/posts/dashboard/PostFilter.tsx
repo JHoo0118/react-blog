@@ -13,50 +13,50 @@ const PostFilter = () => {
         <Header
           icon={"filter"}
           attached
-          style={{ color: "#434343", height: "auto" }}
           content={"필터"}
+          className="filter-header"
         />
         <Menu.Item
-          style={{ color: "#434343" }}
           name={"all"}
           content={"모든 포스트"}
           active={predicate.size === 0}
           onClick={() => setPredicate("all", "true")}
+          className="filter-menu"
         />
         <Menu.Item
-          style={{ color: "#434343" }}
           name={"Javascript"}
           content={"Javascript"}
           active={predicate.get("category") === "javascript"}
           onClick={() => setPredicate("category", "javascript")}
+          className="filter-menu"
         />
         <Menu.Item
-          style={{ color: "#434343" }}
           name={"CSS"}
           content={"CSS"}
           active={predicate.get("category") === "css"}
           onClick={() => setPredicate("category", "css")}
+          className="filter-menu"
         />
         <Menu.Item
-          style={{ color: "#434343" }}
           name={"ASP.NET Core"}
           content={"ASP.NET Core"}
           active={predicate.get("category") === "aspdotnet-core"}
           onClick={() => setPredicate("category", "aspdotnet-core")}
+          className="filter-menu"
         />
         <Menu.Item
-          style={{ color: "#434343" }}
           name={"Python"}
           content={"Python"}
           active={predicate.get("category") === "python"}
           onClick={() => setPredicate("category", "python")}
+          className="filter-menu"
         />
         <Menu.Item
-          style={{ color: "#434343" }}
           name={"React"}
           content={"React"}
           active={predicate.get("category") === "react"}
           onClick={() => setPredicate("category", "react")}
+          className="filter-menu"
         />
       </Menu>
     </>
