@@ -473,7 +473,9 @@ const Portfolio = () => {
               </div>
               <div className="card-pf__side card-pf__side--back card-pf__side--back-3">
                 <div className="card-pf__side--back__container">
-                  <p className="card-pf__description">개인 블로그</p>
+                  <p className="card-pf__description">
+                    저의 생각을 정리하는 개인 블로그
+                  </p>
                   <div className="card-pf__link-box">
                     <a
                       target="_blank"

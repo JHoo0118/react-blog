@@ -208,9 +208,9 @@
     & > h2 {
       font-weight: 600;
       font-size: 2rem;
-      animation-name: moveInLeft;
-      animation-duration: 1s;
-      animation-timing-function: ease-out;
+      // animation-name: moveInLeft;
+      // animation-duration: 1s;
+      // animation-timing-function: ease-out;
       @include respond(tab-land) {
         font-size: 2.5rem;
       }
@@ -898,16 +898,16 @@
       &-2 {
         background-image: linear-gradient(
           to right bottom,
-          rgba($color-secondary-light, 0.85),
-          rgba($color-secondary-dark, 0.85)
+          rgba($color-tertiary-light, 0.85),
+          rgba($color-tertiary-dark, 0.85)
         );
       }
 
       &-3 {
         background-image: linear-gradient(
           to right bottom,
-          rgba($color-tertiary-light, 0.85),
-          rgba($color-tertiary-dark, 0.85)
+          rgba($color-secondary-light, 0.85),
+          rgba($color-secondary-dark, 0.85)
         );
       }
     }
@@ -938,7 +938,7 @@
     }
 
     &--3 {
-      background-image: url(../../assets/img/portfolio/image-1.PNG);
+      background-image: url(../../assets/img/portfolio/image-3.PNG);
     }
   }
 
@@ -969,15 +969,15 @@
     &--2 {
       background-image: linear-gradient(
         to right bottom,
-        rgba($color-secondary-light, 0.85),
-        rgba($color-secondary-dark, 0.85)
+        rgba($color-tertiary-light, 0.85),
+        rgba($color-tertiary-dark, 0.85)
       );
     }
     &--3 {
       background-image: linear-gradient(
         to right bottom,
-        rgba($color-tertiary-light, 0.85),
-        rgba($color-tertiary-dark, 0.85)
+        rgba($color-secondary-light, 0.85),
+        rgba($color-secondary-dark, 0.85)
       );
     }
   }
@@ -1063,13 +1063,13 @@
       &--2,
       &--2:link,
       &--2:visited {
-        color: $color-secondary-dark;
+        color: $color-tertiary-dark;
       }
 
       &--3,
       &--3:link,
       &--3:visited {
-        color: $color-tertiary-dark;
+        color: $color-secondary-dark;
       }
     }
   }

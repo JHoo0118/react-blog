@@ -15,6 +15,7 @@ const PostDashboard: React.FC = () => {
     setPage,
     page,
     totalPages,
+    postRegistry,
   } = rootStore.postStore;
   const [loadingNext, setLoadingNext] = useState(false);
 
@@ -26,8 +27,7 @@ const PostDashboard: React.FC = () => {
   useEffect(() => {
     loadPosts();
   }, [loadPosts]);
-
-  if (loadingInitial && page === 0)
+  if (loadingInitial && page === 0 && postRegistry.size === 0)
     return <LoadingComponent content="로딩 중..." />;
 
   return (
