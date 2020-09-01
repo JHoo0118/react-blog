@@ -40,6 +40,9 @@ const SelectInput: React.FC<IProps> = ({
           <option key="react" value="React">
             React
           </option>
+          <option key="IT" value="IT">
+            IT
+          </option>
         </select>
       </div>
       {touched && error && <span className="form__error-message">{error}</span>}

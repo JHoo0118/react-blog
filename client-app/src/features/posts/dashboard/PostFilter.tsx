@@ -58,6 +58,13 @@ const PostFilter = () => {
           onClick={() => setPredicate("category", "react")}
           className="filter-menu"
         />
+        <Menu.Item
+          name={"IT"}
+          content={"IT"}
+          active={predicate.get("category") === "IT"}
+          onClick={() => setPredicate("category", "IT")}
+          className="filter-menu"
+        />
       </Menu>
     </>
   );
