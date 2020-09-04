@@ -270,7 +270,7 @@ const Portfolio = () => {
                         className="language--logo"
                       />
                       <p>
-                        자바스크립트를 이용하여 웹 페이지를 만들 수 있습니다.
+                        자바스크립트 및 리액트를 이용하여 웹 페이지를 만들 수 있습니다.
                       </p>
                     </div>
                     <div className="dashboard__description--box">
