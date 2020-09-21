@@ -59,7 +59,7 @@ const LoginForm = () => {
             <button
               type="submit"
               className={
-                "btn btn--blue width--full font-size--md margin-top-sm" +
+                "btn btn--blue width--full font-size--md margin-top-sm " +
                 ((invalid && !dirtySinceLastSubmit) || pristine
                   ? "disabled"
                   : "")
